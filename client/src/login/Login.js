@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginAvatar from "../imgFiles/img_avatar2.png";
+import { doSignInWithEmailAndPassword } from "../firebase/auth";
+import { useAuth } from "../context/authcontext";
 import "../Common.css";
 
 function Login() {
   const [formData, setFormData] = useState({ uname: "", psw: "" });
+  const { userLoggedIn } = useAuth();
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -17,14 +21,10 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(".", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    if(!isSignedIn) {
+      setIsSignedIn(true);
+      await doSignInWithEmailAndPassword(formData.uname, formData.psw);
+    }
       if (response.ok) {
         // Redirect to dashboard or home page upon successful login
         navigate("/home");
@@ -32,9 +32,6 @@ function Login() {
         // Handle error if login fails
         console.error("Login failed");
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
   };
 
   const nevigateToRegistration = () => {

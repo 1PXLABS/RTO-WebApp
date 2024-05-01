@@ -91,7 +91,8 @@ function InputPage() {
       </form>
 
       {submitted && (
-        <div className="card">
+        <div className="main-card">
+          <div className="card">
           <h2>Learner Licence Certificate</h2>
           <p><strong>Full Name:</strong> {formData.fullname}</p>
           <p><strong>Gender:</strong> {formData.gender}</p>
@@ -100,6 +101,8 @@ function InputPage() {
           <p><strong>Pincode:</strong> {formData.pincode}</p>
           <p><strong>LLnumber : </strong> MH/2024 </p>
         </div>
+        </div>
+        
       )}
     </div>
   );

@@ -14,7 +14,6 @@ function License() {
       label: "Maharashtra",
       value: "Maharashtra",
     },
-   
   ];
 
   return (

@@ -61,7 +61,7 @@ function Navbar() {
             className="btn btn-primary"
             onClick={() => {
               localStorage.clear();
-              window.location.href = "/";
+              window.location.href = "/login";
             }}
           >
             Logout

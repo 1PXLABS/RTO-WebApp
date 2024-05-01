@@ -323,7 +323,7 @@ function LearnerLicense() {
   const submittoapi = async (values) => {
     try {
       const response = await fetch(
-        "https://api-codehub.vercel.app/api/register/savelearnerlicense",
+        "",
         {
           method: "POST",
           headers: {
@@ -333,7 +333,7 @@ function LearnerLicense() {
         }
       );
       if (response.ok) {
-        navigator("/license/test");
+        navigate("/license/test");
         console.log("Form data submitted successfully");
       } else {
         // Handle errors

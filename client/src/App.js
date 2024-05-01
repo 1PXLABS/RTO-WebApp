@@ -35,7 +35,7 @@ function App() {
       <div className="App">
         <NavbarWithLocation />
         <Routes>
-          <Route exact path="/" element={<Login />} />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/home" element={<Dashboard />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/about" element={<About />} />
@@ -50,7 +50,7 @@ function App() {
             element={<VehicleFormSuccessPage />}
           />
           <Route exact path="/generate/license" element={<InputPage />} />
-          <Route exact path="/registration" element={<Registration />} />
+          <Route exact path="/" element={<Registration />} />
           <Route exact path="/license" element={<License />} />
           <Route exact path="/driving/school" element={<DrivingSchool />} />
           <Route exact path="/license/test" element={<Appointment />} />

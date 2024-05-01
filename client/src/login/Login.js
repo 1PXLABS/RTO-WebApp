@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginAvatar from "../imgFiles/img_avatar2.png";
 import { doSignInWithEmailAndPassword } from "../firebase/auth";
-import { useAuth } from "../context/authcontext";
 import "../Common.css";
 
 function Login() {
-  const [formData, setFormData] = useState({ uname: "", psw: "" });
-  const { userLoggedIn } = useAuth();
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -19,23 +16,14 @@ function Login() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if(!isSignedIn) {
-      setIsSignedIn(true);
-      await doSignInWithEmailAndPassword(formData.uname, formData.psw);
-    }
-      if (response.ok) {
-        // Redirect to dashboard or home page upon successful login
-        navigate("/home");
-      } else {
-        // Handle error if login fails
-        console.error("Login failed");
-      }
+  const handleSubmit =  () => {
+    // e.preventDefault();
+    // await doSignInWithEmailAndPassword(formData.email, formData.password);
+    navigate("/home");
   };
 
   const nevigateToRegistration = () => {
-    navigate("/registration");
+    navigate("/");
   };
 
   return (
@@ -48,26 +36,26 @@ function Login() {
           </div>
 
           <div className="container_login">
-            <label htmlFor="uname">
-              <b>Username</b>
+            <label htmlFor="email">
+              <b>Email</b>
             </label>
             <input
               type="text"
-              placeholder="Enter Username"
-              name="uname"
-              value={formData.uname}
+              placeholder="Enter Email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               required
             />
 
-            <label htmlFor="psw">
+            <label htmlFor="password">
               <b>Password</b>
             </label>
             <input
               type="password"
               placeholder="Enter Password"
-              name="psw"
-              value={formData.psw}
+              name="password"
+              value={formData.password}
               onChange={handleChange}
               required
             />

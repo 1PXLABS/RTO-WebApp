@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore";
 import "../Common.css";
+import { db } from "../firebase/firebase";
 
 function Registration() {
   const navigate = useNavigate();
@@ -9,6 +11,7 @@ function Registration() {
     number: "",
     email: "",
     password: "",
+    repeatPassword: "",
   });
 
   const handleChange = (e) => {
@@ -19,36 +22,44 @@ function Registration() {
     }));
   };
 
-  const signUp = async () => {
-    try {
-      const response = await fetch("", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.status === 201) {
-        navigate("/home");
-        console.log("Registration successful");
-      } else {
-        // Handle errors
-        console.log(response.statusText);
-        console.error("Registration failed:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+  const backToLogIn = () => {
+    navigate("/login");
   };
 
-  const backToLogIn = () => {
-    navigate("/");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.password === "" || formData.repeatPassword === "") {
+      alert("Please fill in both password fields");
+      return;
+    }
+
+    if (formData.password !== formData.repeatPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    const colRef = collection(db, "Signup");
+
+    try {
+      await addDoc(colRef, {
+        name: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+        conpass: formData.repeatPassword,
+        number: formData.number,
+      });
+      console.log("Signup successful");
+      window.location.href = "/home"; // Redirect after signup
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
   };
 
   return (
     <div className="success-page" style={{ padding: "30px 450px" }}>
       <h1>Sign Up</h1>
-      <div className="form">
+      <form onSubmit={handleSubmit} id="signup-form">
         <div className="container_login">
           <p>Please fill in this form to create an account.</p>
           <hr />
@@ -63,6 +74,7 @@ function Registration() {
             value={formData.fullName}
             onChange={handleChange}
             required
+            id="name"
           />
 
           <label htmlFor="number">
@@ -75,6 +87,7 @@ function Registration() {
             value={formData.number}
             onChange={handleChange}
             required
+            id="number"
           />
 
           <label htmlFor="email">
@@ -87,6 +100,7 @@ function Registration() {
             value={formData.email}
             onChange={handleChange}
             required
+            id="email"
           />
           <label htmlFor="password">
             <b>Password</b>
@@ -98,6 +112,7 @@ function Registration() {
             value={formData.password}
             onChange={handleChange}
             required
+            id="password"
           />
 
           <label htmlFor="repeatPassword">
@@ -110,19 +125,10 @@ function Registration() {
             value={formData.repeatPassword}
             onChange={handleChange}
             required
+            id="conpass"
           />
 
-          <label>
-            <input
-              type="checkbox"
-              checked={formData.remember}
-              name="remember"
-              onChange={handleChange}
-            />
-            Remember me
-          </label>
-
-          <p>
+          <p style={{ color: "white" }}>
             By creating an account you agree to our{" "}
             <a href="#">Terms & Privacy</a>.
           </p>
@@ -131,12 +137,12 @@ function Registration() {
             <button type="button" className="cancelbtn" onClick={backToLogIn}>
               Cancel
             </button>
-            <button type="button" className="signupbtn" onClick={signUp}>
+            <button type="submit" className="signupbtn">
               Sign Up
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

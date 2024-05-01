@@ -1,0 +1,466 @@
+/* ***************************** Log in CSS  **************************** */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+.form {
+  border: 3px solid #f1f1f1;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+.centered-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.success-page {
+  background-image: url('./imgFiles/rto.png'); /* Replace 'path/to/background-image.jpg' with the path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ensures the background covers the entire viewport */
+}
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 30% !important;
+  border-radius: 50%;
+}
+
+/* .container {
+    padding: 16px !important;
+} */
+
+.container_login {
+  padding: 16px !important;
+}
+
+span.psw {
+  float: left;
+  padding-top: 16px;
+}
+
+span.psw-one {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+
+  span.psw-one {
+    display: block;
+    float: none;
+  }
+
+  .cancelbtn {
+    width: 100%;
+  }
+}
+
+/* *********************************************************************** */
+
+/* ******************************* Registration Csss ************************ */
+
+/* 
+    {
+    box-sizing: border-box
+} */
+
+/* Full-width input fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #1c7eb9;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn,
+  .signupbtn {
+    width: 100%;
+  }
+}
+
+/* ******************************************************************************** */
+
+/* ****************************** DASHBOARD ************************* */
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 32px 28px;
+  text-decoration: none;
+  font-size: large;
+}
+
+li a:hover:not(.active) {
+  background-color: #20b6f5;
+}
+
+.active {
+  background-color: #1c7eb9;
+  color: #fff;
+}
+
+.dashboard {
+  a:focus,
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+/* ********************************************************* */
+
+/* ***************************CONTACT****************************** */
+.divider {
+  border-bottom: 2px solid #1c7eb9;
+}
+
+/* ********************************************************* */
+
+.bx .bxl-gmail {
+  font-size: 30px;
+}
+
+/* ***************************LICENSE SCREEN ****************************** */
+.license-img {
+  cursor: pointer;
+  transition: transform 1s ease-in-out; /* Adjust transition duration here */
+}
+
+.license-img:hover {
+  transform: rotate(360deg);
+}
+
+/* Additional styles for the well container */
+.license-well {
+  text-align: center; /* Center the content */
+  img.avatar {
+    width: 15% !important;
+    border-radius: 50%;
+  }
+}
+
+/* ***************************LICENSE SCREEN ****************************** */
+
+/* ***************************LEARNER LICENSE SCREEN  ****************************** */
+/* .container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} */
+
+.formContainer {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.commoninput {
+  input {
+    width: 50% !important;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+}
+
+.inputs {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitButton {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.gender {
+  input {
+    margin: 10px;
+  }
+}
+
+.well-gender {
+  min-height: 20px;
+  padding: 27px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.well-bloodgroup {
+  min-height: 20px;
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.phonecodeinputs {
+  /* width: 10%; */
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.well-button {
+  min-height: 20px;
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* ***************************APPOINTMENT SCREEN  ****************************** */
+
+a:focus,
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.license-screen-css {
+  a:focus,
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.btn-group-vertical > .btn-group::after,
+.btn-toolbar::after,
+.clearfix::after,
+.container-fluid::after,
+.container::after,
+.dl-horizontal dd::after,
+.form-horizontal .form-group::after,
+.modal-footer::after,
+.modal-header::after,
+.nav::after,
+.navbar-collapse::after,
+.navbar-header::after,
+.navbar::after,
+.pager::after,
+.panel-body::after,
+.row::after {
+  clear: both;
+}
+.btn-group-vertical > .btn-group::after,
+.btn-group-vertical > .btn-group::before,
+.btn-toolbar::after,
+.btn-toolbar::before,
+.clearfix::after,
+.clearfix::before,
+.container-fluid::after,
+.container-fluid::before,
+.container::after,
+.container::before,
+.dl-horizontal dd::after,
+.dl-horizontal dd::before,
+.form-horizontal .form-group::after,
+.form-horizontal .form-group::before,
+.modal-footer::after,
+.modal-footer::before,
+.modal-header::after,
+.modal-header::before,
+.nav::after,
+.nav::before,
+.navbar-collapse::after,
+.navbar-collapse::before,
+.navbar-header::after,
+.navbar-header::before,
+.navbar::after,
+.navbar::before,
+.pager::after,
+.pager::before,
+.panel-body::after,
+.panel-body::before,
+.row::after,
+.row::before {
+  display: table;
+
+  content: " ";
+}
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+
+  -moz-box-sizing: border-box;
+
+  box-sizing: border-box;
+}
+element {
+  border: 3px solid rgb(241, 241, 241);
+}
+.row {
+  margin-right: -15px;
+
+  margin-left: -15px;
+
+  background: #88d5e985;
+}
+.h3,
+h3 {
+  font-size: 24px;
+  color: #1c7eb9;
+}
+
+h1 {
+  color: #1c7eb9;
+}
+
+.invalid-feedback {
+  display: block !important;
+  width: 100%;
+  color: #f86c6b;
+}
+
+form {
+  .is-invalid {
+    border-color: #f86c6b;
+  }
+}
